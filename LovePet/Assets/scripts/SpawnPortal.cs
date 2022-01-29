@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpawnPortal : MonoBehaviour
 {
-    public GameObject Portal;
-    private Cursor cursor;
-    public GameObject Cursorr;
+    public GameObject portal;
+    //private Cursor cursor;
+    public GameObject cursorr;
    
 
     // Start is called before the first frame update
@@ -30,6 +30,12 @@ public class SpawnPortal : MonoBehaviour
 
     public void PressedButton()
     {
-        //GameObject obj = Instantiate(Portal, cursor.transform.position, cursor.transform.rotation);
-    }
+        //print($"PortalIs {portal}");
+        //print($"CursorIs {cursorr.transform.position}");
+        //print($"CursorIs {cursorr.transform.rotation}");
+
+        GameObject obj = Instantiate(portal, cursorr.transform.position, cursorr.transform.rotation);
+        cursorr.SetActive(false);
+        
+        }
 }
