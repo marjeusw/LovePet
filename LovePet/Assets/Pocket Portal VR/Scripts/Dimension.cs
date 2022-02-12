@@ -54,7 +54,7 @@ public class Dimension : MonoBehaviour {
                 CameraExtensions.LayerCullingShow(camera, layer);
                 if (camera.GetComponent<Skybox>())
                 {
-                    camera.GetComponent<Skybox>().material = customSkybox;
+                    camera.GetComponent<Skybox>().material = customSkybox; //real background here
                 }
             }
             else

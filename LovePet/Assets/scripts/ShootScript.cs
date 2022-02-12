@@ -14,7 +14,7 @@ public class ShootScript : MonoBehaviour
 
         if(Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit))
         {
-            if(hit.transform.name == "Enemy 1(Clone)") //if later on different models for enemy then mention here
+            if(hit.transform.tag == "CREnemies") //if later on different models for enemy then mention here
             {
                 Destroy(hit.transform.gameObject);
                 Instantiate(smoke, hit.point, Quaternion.LookRotation(hit.normal));
