@@ -1,7 +1,6 @@
 {
     "name": "Unity.XR.ARFoundation",
     "references": [
-        "ARFoundationRemote.Meshing",
         "Unity.RenderPipelines.Core.Runtime",
         "Unity.RenderPipelines.Lightweight.Runtime",
         "Unity.RenderPipelines.Universal.Runtime",
