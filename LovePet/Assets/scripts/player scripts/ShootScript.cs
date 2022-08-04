@@ -16,6 +16,7 @@ public class ShootScript : MonoBehaviour
         {
             if(hit.transform.tag == "CREnemies") //if later on different models for enemy then mention here
             {
+                Debug.Log("shot enemy oh noo");
                 Destroy(hit.transform.gameObject);
                 Instantiate(smoke, hit.point, Quaternion.LookRotation(hit.normal));
             }

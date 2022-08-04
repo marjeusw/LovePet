@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class RoomManager : MonoBehaviour
 {
     public static RoomManager Instance { set; get; }
-
+    [SerializeField] private GameObject WholePlayer;
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,15 +41,19 @@ public class RoomManager : MonoBehaviour
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        Vector3 spawningPos = new Vector3(Random.Range(-3f, 3f), 2.0f, Random.Range(-3f, 3f));
+        Vector3 spawningPos = new Vector3(Random.Range(-3f, 3f), 2.0f, Random.Range(-3f, 3f)); 
+        Vector3 playerSpawningPos = new Vector3(Random.Range(-3f, 3f), 2.0f, Random.Range(-3f, 3f));
+
 
         if (PhotonNetwork.InRoom)
         {
             //Instanciates by name (careful with spelling)
-            PhotonNetwork.Instantiate("blob", spawningPos, Quaternion.identity); //maybe only 1 for now to see if it works
+            PhotonNetwork.Instantiate("WholePlayer", playerSpawningPos, Quaternion.identity); //maybe only 1 for now to see if it works
+            PhotonNetwork.Instantiate("blob", spawningPos, Quaternion.identity);
         }
         else
         {
+            Instantiate(Resources.Load("WholePlayer"), playerSpawningPos, Quaternion.identity);
             Instantiate(Resources.Load("blob"), spawningPos, Quaternion.identity);
         }
     }
